@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="shortcut icon" href="./assets/img/Logo Amazing Events ico.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/af39f1a2c3.js" crossorigin="anonymous"></script>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Amazing Events</title>
+</head>
+<body>
+    <div id="app">
+    <header>
+        <div class="img"> 
+        <a href="./index.html"><img src="./assets/img/Logo_Amazing_Events.png" 
+        alt="logo"></a>
+        </div>
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid ">
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active " aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Events
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="./upcomingevents.html">Upcoming Events</a></li>
+                        <li><a class="dropdown-item" href="./pastevents.html">Past Events</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Stats</a>
+                    </li>
+                    
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="title d-flex justify-content-between align-items-center">
+            <a href="./contact.html"><img class="chev" src="./assets/img/chevron_i.png" alt="chevI"></a>
+            <span class="pb-3">Stats</span>
+            <a href="#"><img class="chev" src="#" alt=""></a>
+        </div>
+
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th colspan="3" class="text-center">Events statics</th>
+                </tr>
+                <tr class="text-center">
+                    <th>Event with the highest percentage of attendance</th>
+                    <th>Event with the lowest percentage of attendance</th>
+                    <th>Event with larger capacity</th>
+                </tr>
+            </thead>
+
+            <tbody class="text-center">
+                <tr>
+                    <td id="maximoGeneral">
+                        {{eventoMayorPorcentaje.name}}
+                    </td>
+                    <td id="minimoGeneral">
+                        {{eventoMenorPorcentaje.name}}
+                    </td>
+                    <td id="mayorCapacidad">
+                        {{eventoMasCapacidad.name}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table mt-3">
+            <thead>
+            <tr>
+                <th colspan="3" class="text-center">Upcoming events statistics by category</th>
+            </tr>
+            <tr class="text-center">
+                <th>Category</th>
+                <th>Revenue</th>
+                <th>Percentage of attendance</th>
+            </tr>
+        </thead>
+            <tbody id="upcomingStats" class="text-center">
+                <tr v-for="categoria in statsPorCategoriaUp">
+                    <td>{{categoria[0]}}</td>
+                    <td>${{categoria[1]}}</td>
+                    <td>{{categoria[2]}}%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table mt-3">
+            <thead class="fondoVerde">
+            <tr>
+                <th colspan="3" class="text-center">Past events statistics by category</th>
+            </tr>
+            <tr class="text-center">
+                <th>Category</th>
+                <th>Revenue</th>
+                <th>Percentage of attendance</th>
+            </tr>
+        </thead>
+            <tbody id="pastStats" class="text-center">
+                <tr v-for="categoria in statsPorCategoriaPast">
+                    <td>{{categoria[0]}}</td>
+                    <td>${{categoria[1]}}</td>
+                    <td>{{categoria[2]}}%</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    </div>
+    <footer>
+        <div>
+            <a href="https://www.facebook.com"><i class="fa-brands fa-facebook fa-2x"></i></a>
+            <a href="https://www.instagram.com"><i class="fa-brands fa-instagram fa-2x"></i></a>
+            <a href="https://wa.me/+541122550751"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
+            <a href="mailto:info@amazingevents.com"><i class="fa-solid fa-envelope fa-2x"></i></a>
+        </div>
+        <p>Cohort | &copy; MindHub</p>
+    </footer>
+
+
+
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue@3"></script>
+     <script src="./js/vue.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="shortcut icon" href="./assets/img/Logo Amazing Events ico.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/af39f1a2c3.js" crossorigin="anonymous"></script>
+    
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Amazing Events: Upcoming Events</title>
+</head>
+<body id="upcomingEvents">
+    <div id="app">
+    <header>
+        <div class="img"> 
+        <a href="./index.html"><img src="./assets/img/Logo_Amazing_Events.png" 
+        alt="logo"></a>
+        </div>
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid ">
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active " aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Events
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Upcoming Events</a></li>
+                        <li><a class="dropdown-item" href="./pastevents.html">Past Events</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./stats.html">Stats</a>
+                    </li>
+                    
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="title d-flex justify-content-between align-items-center">
+            <a href="./index.html"><img class="chev" src="./assets/img/chevron_i.png" alt="chevI"></a>
+            <span class="pb-3">Upcoming Events</span>
+            <a href="./pastevents.html"><img class="chev" src="./assets/img/chevron_d.png" alt="chevD"></a>
+        </div>
+
+        <div class="container check d-flex justify-content-between ">
+            <div id="filterContainer" class=" checks" v-for="categoria in categorias">
+                <input v-model="categoriasSeleccionadas"  type="checkbox"
+                :value="categoria" :id="categoria" name="{{categoria}}"> 
+                <label class="d-flex " :for="categoria">
+                    {{categoria}}</label>
+            </div>
+            <div class="search">
+                {{filtrosJuntos}} 
+                <input id="barraDeBusqueda" class="checkss text-center" type="text" placeholder="search for name" v-model="inputDeTexto">
+            </div>
+        </div>
+
+        <div class="cards d-flex justify-content-evenly flex-wrap" id="miSeccion">
+            <div v-for="eventos in eventosFiltrados">
+                <div class="card">
+                        <img  v-bind:src = 'eventos.image' class="card-img-top" alt="eventos.image">
+                                <div class="cardText ">
+                                <div class="text-center">
+                                    <h5 class="card-title"> {{eventos.name}}</h5>
+                                    <p class="card-text">{{eventos.description}}
+                                    </p>
+                                </div>
+                                <div class="d-flex flex-row pt-4">
+                                    <p>Price: $ {{eventos.price}}</p>
+                                    <a :href="'./details.html?id='+eventos._id" class="btn btn-primary">More Info</a>
+                                </div>
+                                </div>
+
+                    </div>
+                
+                </div>
+            </div>
+        </main>
+        
+
+    </div>
+
+    <footer>
+        <div>
+            <a href="https://www.facebook.com"><i class="fa-brands fa-facebook fa-2x"></i></a>
+            <a href="https://www.instagram.com"><i class="fa-brands fa-instagram fa-2x"></i></a>
+            <a href="https://wa.me/+541122550751"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
+            <a href="mailto:info@amazingevents.com"><i class="fa-solid fa-envelope fa-2x"></i></a>
+        </div>
+        <p>Cohort | &copy; MindHub</p>
+    </footer>
+
+    
+
+    <!-- JavaScript Bundle with Popper -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+     <script src="./js/vue.js"></script>
+</body>
+</html>
